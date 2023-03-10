@@ -15,17 +15,19 @@
 # the public, perform publicly and display publicly, and to permit others to do so.
 #=========================================================================================
 
-find_program(
-    CLANG_FORMAT
-    NAMES
-        clang-format-13 # Debian package manager, among others, provide this name
-        clang-format-mp-13.0 # MacPorts
-        clang-format-12 # Debian package manager, among others, provide this name
-        clang-format-mp-12.0 # MacPorts
-        clang-format-11 # Debian package manager, among others, provide this name
-        clang-format-mp-11.0 # MacPorts
-        clang-format # Default name
+if (NOT DEFINED CLANG_FORMAT)
+    find_program(
+        CLANG_FORMAT
+        NAMES
+            clang-format-13 # Debian package manager, among others, provide this name
+            clang-format-mp-13.0 # MacPorts
+            clang-format-12 # Debian package manager, among others, provide this name
+            clang-format-mp-12.0 # MacPorts
+            clang-format-11 # Debian package manager, among others, provide this name
+            clang-format-mp-11.0 # MacPorts
+            clang-format # Default name
     )
+endif()
 
 find_program(BLACK  NAMES black)
 
